@@ -66,7 +66,7 @@ body {
     background-color: rgb(17, 17, 17);
     overflow-y: auto;
     z-index: 1;
-    background-image: url("../asset/images/texture/navy.png");
+    background-image: url("asset/images/texture/navy.png");
     background-size: 50vw;
     scroll-behavior: smooth;
 }
