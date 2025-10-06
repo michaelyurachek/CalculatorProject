@@ -212,8 +212,8 @@ body {
     font-weight: 600;
 }
 
-/* Simple Calculator Section */
-.simple_calculator_section {
+/* Section Styling */
+.section_block {
     width: 100%;
     height: auto;
     display: flex;
@@ -224,7 +224,7 @@ body {
     font-size: 2vw;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 2vh;
+    margin-bottom: 4vh;
     color: rgb(219, 219, 219);
     text-decoration: underline rgb(255, 170, 59) wavy 3px;
     text-underline-offset: 2vh;
@@ -300,6 +300,7 @@ pre {
     border-radius: 10px;
 }
 
+/* Simple Calculator Module Styling */
 .input_equation_module {
     display: flex;
     flex-direction: column;
@@ -351,4 +352,74 @@ pre {
     font-size: 1.5vw;
     color: rgb(201, 201, 201);
     font-weight: 500;
+}
+
+/* Button Calculator Module Styling */
+.button_click_module {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 2vh 2vw;
+    box-shadow: 0 0 10px black;
+}
+
+.calculator {
+    width: 80%;
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #585858;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-primary);
+    padding: 0.5vh 1vw;
+    font-size: 1.5vw;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: grid;
+    gap: 1vw;
+    margin-top: 2vh;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 1vh 1vw;
+    text-align: center;
+    font-size: 1.2vw;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#equals_button {
+    background-color: #4CAF50;
+}
+
+#button_display {
+    margin-top: 2vh;
+    font-size: 1.5vw;
+    color: rgb(201, 201, 201);
+    font-weight: 500;
+    background-color:rgb(44, 44, 44);
+    border: 2px solid rgb(61, 61, 61);
+    padding: 1vh 1vw;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#clear_button {
+    background-color: #f44336;
+    grid-column: span 4; /* Make it span all 4 columns */
+    margin-bottom: 2vh;
 }

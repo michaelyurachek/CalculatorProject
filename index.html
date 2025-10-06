@@ -43,9 +43,9 @@
                 </ul>
                 <h3 class="nav_header" id="dropDown_header-2" onclick="toggleDropdown(2)"><span class="arrow">▷</span> Button Calculator</h3>
                 <ul class="nav_list" id="dropdown-2">
-                    <a><li class="nav_list_object">Description</li></a>
-                    <a><li class="nav_list_object">Code Breakdown</li></a>
-                    <a><li class="nav_list_object">Module</li></a>
+                    <a href="#buttonCodeDesc"><li class="nav_list_object">Description</li></a>
+                    <a href="#buttonCodeBreakdown"><li class="nav_list_object">Code Breakdown</li></a>
+                    <a href="#buttonLiveModule"><li class="nav_list_object">Module</li></a>
                 </ul>
                 <h3 class="nav_header" id="dropDown_header-3" onclick="toggleDropdown(3)"><span class="arrow">▷</span> Advanced Calculator</h3>
                 <ul class="nav_list" id="dropdown-3">
@@ -79,10 +79,10 @@
                         <li class="header_list_object">How to implement advanced mathematical functions like trigonometry and logarithms.</li>
                         <li class="header_list_object">How to enhance your calculator with additional features and improved UI/UX.</li>
                     </ul>
-                    <hr id="simpleCodeDesc">
                 </header>
+                <hr id="simpleCodeDesc">
                 <!-- SIMPLE CALCULATOR [ SECTION ]-->
-                <section class="simple_calculator_section">
+                <section class="simple_block">
                     <h2 class="section_title">Simple Calculator</h2>
                     <p class="section_description">
                         The Simple Calculator is the most basic example of a calculator you can build with JavaScript. 
@@ -138,6 +138,120 @@
                         <input type="text" id="equation_input" placeholder="Example: 2 + 2">
                         <button class="calculate_button" id="simpleCalculate_button">Calculate</button>
                         <div id="result_display">Result: </div>
+                    </div>
+                </section>
+                <hr id="buttonCodeDesc">
+                <!-- BUTTON CALCULATOR [ SECTION ]-->
+                <section class="section_block">
+                    <h2 class="section_title">Button Calculator</h2>
+                    <p class="section_description">
+                        The Button Calculator builds upon the Simple Calculator by providing a graphical user interface (GUI) with buttons for digits and operations. 
+                        Users can click buttons to input numbers and operators, making it more user-friendly, especially for those unfamiliar with typing expressions.
+                        <br>
+                        <br>
+                        This calculator uses event listeners on each button to append the corresponding value to an input field. 
+                        When the user clicks the "Calculate" button, the input string is evaluated using eval(), similar to the Simple Calculator.
+                        <br>
+                        <br>
+                        The Button Calculator demonstrates how to create interactive elements in HTML and handle user input through JavaScript, paving the way for more complex calculators with additional features.
+                    </p>
+                    <hr id="buttonCodeBreakdown">
+                    <h3 class="section_subtitle">Code Breakdown:</h3>
+                    <!-- Code Block for HTML -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-html">
+                        &lt;div class="button_click_module"&gt;
+                            &lt;div class="calculator"&gt;
+                                &lt;input type="text" id="button_display" disabled&gt;
+                                &lt;div class="buttons"&gt;
+                                    &lt;button class="btn" data-value="7"&gt;7&lt;/button&gt;
+                                    &lt;button class="btn" data-value="8"&gt;8&lt;/button&gt;
+                                    &lt;button class="btn" data-value="9"&gt;9&lt;/button&gt;
+                                    &lt;button class="btn" data-value="/"&gt;/&lt;/button&gt;
+
+                                    &lt;button class="btn" data-value="4"&gt;4&lt;/button&gt;
+                                    &lt;button class="btn" data-value="5"&gt;5&lt;/button&gt;
+                                    &lt;button class="btn" data-value="6"&gt;6&lt;/button&gt;
+                                    &lt;button class="btn" data-value="*"&gt;*&lt;/button&gt;
+
+                                    &lt;button class="btn" data-value="1"&gt;1&lt;/button&gt;
+                                    &lt;button class="btn" data-value="2"&gt;2&lt;/button&gt;
+                                    &lt;button class="btn" data-value="3"&gt;3&lt;/button&gt;
+                                    &lt;button class="btn" data-value="-"&gt;-&lt;/button&gt;
+
+                                    &lt;button class="btn" data-value="0"&gt;0&lt;/button&gt;
+                                    &lt;button class="btn" data-value="."&gt;.&lt;/button&gt;
+                                    &lt;button class="btn" id="equals_button"&gt;=&lt;/button&gt;
+                                    &lt;button class="btn" data-value="+"&gt;+&lt;/button&gt;
+
+                                    &lt;button class="btn" id="clear_button"&gt;C&lt;/button&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <!-- Code Block for JavaScript -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode('js-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">
+                        // --- Button Click Calculator ---
+                        const display = document.getElementById('button_display');
+                        const buttons = document.querySelectorAll('.btn');
+                        const equalsButton = document.getElementById('equals_button');
+                        const clearButton = document.getElementById('clear_button');
+
+                        if (display && buttons.length) {
+                            buttons.forEach(btn => {
+                                const value = btn.getAttribute('data-value');
+                                if (value) btn.addEventListener('click', () => display.value += value);
+                            });
+                        }
+                        if (equalsButton) {
+                            equalsButton.addEventListener('click', () => {
+                                try { display.value = eval(display.value); } catch { display.value = 'Error'; }
+                            });
+                        }
+                        if (clearButton) {
+                            clearButton.addEventListener('click', () => display.value = '');
+                        }
+                        </code></pre>
+                    </div>
+                    <hr id="buttonLiveModule">
+                    <h3 class="section_subtitle">Live Module:</h3>
+                    <div class="button_click_module">
+                        <div class="calculator">
+                            <input type="text" id="button_display" disabled>
+                            <div class="buttons">
+                                <button class="btn" data-value="7">7</button>
+                                <button class="btn" data-value="8">8</button>
+                                <button class="btn" data-value="9">9</button>
+                                <button class="btn" data-value="/">/</button>
+
+                                <button class="btn" data-value="4">4</button>
+                                <button class="btn" data-value="5">5</button>
+                                <button class="btn" data-value="6">6</button>
+                                <button class="btn" data-value="*">*</button>
+
+                                <button class="btn" data-value="1">1</button>
+                                <button class="btn" data-value="2">2</button>
+                                <button class="btn" data-value="3">3</button>
+                                <button class="btn" data-value="-">-</button>
+
+                                <button class="btn" data-value="0">0</button>
+                                <button class="btn" data-value=".">.</button>
+                                <button class="btn" id="equals_button">=</button>
+                                <button class="btn" data-value="+">+</button>
+
+                                <button class="btn" id="clear_button">C</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </main>
