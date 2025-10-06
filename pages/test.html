@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Test Page</title>
+        <!-- Favicon -->
+        <link rel="icon" href="../asset/images/icons/MOON-FAVICON.png" type="image/png">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../style/test.css">
+        <!-- Scripts -->
+        <script src="../script/test.js" defer></script>
+    </head>
+    <body>
+        <h1>Calculator Types</h1>
+        <p>This is a test page for different types of calculators.</p>
+        <h2>Types of tests:</h2>
+        <ul>
+            <li>Input Equation</li>
+            <li>Button Click</li>
+            <li>Advanced Equations</li>
+            <li>Test Equations</li>
+        </ul>
+        <h3>Input Simple Equations Module</h3>
+        <div class="input_equation_module">
+            <input type="text" id="equation_input" placeholder="Example: 2 + 2">
+            <button class="calculate_button" id="simpleCalculate_button">Calculate</button>
+            <div id="result_display">Result: </div>
+        </div>
+        <h3>Button Click:</h3>
+        <div class="button_click_module">
+            <div class="calculator">
+                <input type="text" id="button_display" disabled>
+                <div class="buttons">
+                    <button class="btn" data-value="7">7</button>
+                    <button class="btn" data-value="8">8</button>
+                    <button class="btn" data-value="9">9</button>
+                    <button class="btn" data-value="/">/</button>
+
+                    <button class="btn" data-value="4">4</button>
+                    <button class="btn" data-value="5">5</button>
+                    <button class="btn" data-value="6">6</button>
+                    <button class="btn" data-value="*">*</button>
+
+                    <button class="btn" data-value="1">1</button>
+                    <button class="btn" data-value="2">2</button>
+                    <button class="btn" data-value="3">3</button>
+                    <button class="btn" data-value="-">-</button>
+
+                    <button class="btn" data-value="0">0</button>
+                    <button class="btn" data-value=".">.</button>
+                    <button class="btn" id="equals_button">=</button>
+                    <button class="btn" data-value="+">+</button>
+
+                    <button class="btn" id="clear_button">C</button>
+                </div>
+            </div>
+        </div>
+        <h3>Advanced Equations:</h3>
+        <div class="advanced_equations_module">
+            <input type="text" id="advanced_input" placeholder="Example: sin(30) + log(10)">
+            <button class="calculate_button" id="advanced_calculate">Calculate</button>
+            <div id="advanced_result_display">Result: </div>
+    </body>
+</html>
