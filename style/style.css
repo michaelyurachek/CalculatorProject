@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ROOT VARIABLES */
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-code: 'IBM Plex Mono', monospace;
+}
+
+::selection {
+    background-color: rgb(255, 170, 59);
+    color: black;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: .8vw;
+}
+::-webkit-scrollbar-track {
+    background: rgb(17, 17, 17);
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(59, 59, 59);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(99, 99, 99);
+}
+
+
+/* Global Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid rgb(59, 59, 59);
+    margin: 10vh auto;
+    width: 90%;
+}
+
+/* Body and Containers */
+body {
+    background-color: black;
+}
+
+.page_container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.main_container {
+    width: 80vw;
+    height: 100vh;
+    background-color: rgb(17, 17, 17);
+    overflow-y: auto;
+    z-index: 1;
+    background-image: url("../asset/images/texture/navy.png");
+    background-size: 50vw;
+    scroll-behavior: smooth;
+}
+
+/* Navigation Section */
+.nav_section {
+    width: 20vw;
+    height: 100vh;
+    background-color: rgb(8, 8, 8);
+    z-index: 5;
+    box-shadow: 0 0 20px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_title {
+    font-size: 1.8vw;
+    margin: 0 auto;
+    margin-top: 4vh;
+    font-weight: 800;
+    color: rgb(219, 219, 219);
+}
+
+.nav_subtitle {
+    font-size: 1.4vw;
+    margin: 2vh auto;
+    font-weight: 500;
+    color: rgb(182, 182, 182);
+}
+
+.nav_header {
+    color: rgb(241, 241, 241);
+    font-weight: 500;
+    font-size: 1.2vw;
+    margin-top: 2vh;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgb(27, 27, 27);
+    padding: 2vh 0;
+    padding-left: 2vw;
+}
+
+.nav_header:hover {
+    background-color: rgb(51, 51, 51);
+    transition: 0.1s ease;
+}
+
+.nav_list {
+    margin-left: 3vw;
+    margin-top: 3vh;
+    font-size: 1vw;
+    display: none;
+}
+
+.nav_list_object {
+    margin-bottom: 2vh;
+    cursor: pointer;
+    list-style-type:circle;
+    cursor: pointer;
+    user-select: none;
+}
+
+.arrow {
+    color: rgb(255, 170, 59);
+}
+
+.nav_list_object:hover {
+    color: rgb(255, 170, 59);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: 0.1s ease;
+    list-style-type: disc;
+}
+
+/* Header Section */
+.header_section {
+    width: 100%;
+    height: auto;
+    padding: 2vh 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_icon {
+    width: 10vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2vh;
+}
+
+.header_title {
+    font-size: 2.5vw;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2vh;
+    color: rgb(219, 219, 219);
+    text-decoration: underline rgb(255, 170, 59) wavy 3px;
+    text-underline-offset: 2vh;
+    text-shadow: 0 .4vh 10px rgb(0, 0, 0);
+}
+
+.header_description {
+    font-size: 1.2vw;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto;
+    width: 60vw;
+    color: rgb(201, 201, 201);
+    line-height: 1.5;
+    margin-top: 4vh;
+}
+
+.header_subtitle {
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin: 0 auto;
+    text-align: center;
+    width: 60vw;
+    color: rgb(219, 219, 219);
+    line-height: 1.5;
+}
+
+.header_list {
+    margin: 0 auto;
+    margin-top: 2vh;
+    width: 60vw;
+    font-size: 1.2vw;
+    color: rgb(201, 201, 201);
+    line-height: 1.5;
+    list-style-type: decimal;
+    width: 40%;
+}
+
+.header_list_object {
+    text-align: center;
+    margin-bottom: 2vh;
+    color: rgb(201, 201, 201);
+}
+
+.header_list_object::marker {
+    color: rgb(255, 170, 59);
+    font-weight: 600;
+}
+
+/* Section Styling */
+.section_block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.section_title {
+    font-size: 2vw;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4vh;
+    color: rgb(219, 219, 219);
+    text-decoration: underline rgb(255, 170, 59) wavy 3px;
+    text-underline-offset: 2vh;
+    text-shadow: 0 .4vh 10px rgb(0, 0, 0);
+}
+
+.section_description {
+    font-size: 1.2vw;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto;
+    width: 60vw;
+    color: rgb(201, 201, 201);
+    line-height: 1.5;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+}
+
+.section_subtitle {
+    font-size: 1.5vw;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 5vw;
+    width: 60vw;
+    color: rgb(219, 219, 219);
+    line-height: 1.5;
+    margin-bottom: 2vh;
+}
+
+.code-block {
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 2vh 2vw;
+    margin: 1vh auto;
+    width: 90%;
+    overflow-x: auto;
+    box-shadow: 0 0 10px black;
+    margin-bottom: 4vh;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.code-header span {
+    font-family: var(--font-code);
+    font-size: 1vw;
+    color: rgb(255, 255, 255);
+}
+
+.copy-btn {
+    background-color: rgb(59, 59, 59);
+    border: none;
+    color: white;
+    padding: 0.5vh 1vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1vw;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background-color: rgb(54, 54, 54);
+    transition: 0.1s ease;
+}
+
+pre {
+    border-radius: 10px;
+}
+
+/* Simple Calculator Module Styling */
+.input_equation_module {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40vw;
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 2vh 2vw;
+    box-shadow: 0 0 10px black;
+}
+
+#equation_input {
+    width: 50%;
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #585858;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-primary);
+    padding: 0.5vh 1vw;
+    font-size: 1vw;
+}
+
+#equation_input::placeholder {
+    color: #888;
+}
+
+#equation_input:focus {
+    outline: none;
+    border: 1px solid rgb(255, 170, 59);
+    box-shadow: 0 0 5px rgb(255, 170, 59);
+}
+
+.calculate_button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5vh 1vw;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1vw;
+    margin-top: 1vh;
+}
+
+#result_display, #advanced_result_display {
+    margin-top: 2vh;
+    font-size: 1.5vw;
+    color: rgb(201, 201, 201);
+    font-weight: 500;
+}
+
+/* Button Calculator Module Styling */
+.button_click_module {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30vw;
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 2vh 2vw;
+    box-shadow: 0 0 10px black;
+}
+
+.calculator {
+    width: 80%;
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #585858;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-primary);
+    padding: 0.5vh 1vw;
+    font-size: 1.5vw;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: grid;
+    gap: 1vw;
+    margin-top: 2vh;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 1vh 1vw;
+    text-align: center;
+    font-size: 1.2vw;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#equals_button {
+    background-color: #4CAF50;
+}
+
+#button_display {
+    margin-top: 2vh;
+    font-size: 1.5vw;
+    color: rgb(201, 201, 201);
+    font-weight: 500;
+    background-color:rgb(44, 44, 44);
+    border: 2px solid rgb(61, 61, 61);
+    padding: 1vh 1vw;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#clear_button {
+    background-color: #f44336;
+    grid-column: span 4; /* Make it span all 4 columns */
+    margin-bottom: 2vh;
+}
+
+/* Advanced Calculator Module Styling */
+.advanced_equations_module {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40vw;
+    margin-left: 5vw;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 2vh 2vw;
+    box-shadow: 0 0 10px black;
+}
+
+#advanced_input {
+    width: 50%;
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #585858;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-primary);
+    padding: 0.5vh 1vw;
+    font-size: 1vw;
+}
+
+#advanced_input::placeholder {
+    color: #888;
+}
+
+#advanced_input:focus {
+    outline: none;
+    border: 1px solid rgb(255, 170, 59);
+    box-shadow: 0 0 5px rgb(255, 170, 59);
+}
+
+/* Summary Section */
+.summary_block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15vh;
+}
+
+/* Responsive Design */

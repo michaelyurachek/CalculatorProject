@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Basic Meta -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- SEO Meta -->
+        <title>How to Calculate</title>
+        <meta name="description" content="Step-by-step guide to creating a calculator using HTML, CSS, and JavaScript. Learn by example with live code and explanations.">
+        <meta name="keywords" content="HTML calculator, JavaScript calculator, learn JavaScript, web development, code example">
+        <meta name="author" content="Michael Yurachek">
+        <!-- Favicon -->
+        <link rel="icon" href="../library/images/icons/calcProject.png" type="image/png">
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../style/style.css">
+        <!-- Scripts -->
+        <script src="../script/calculator.js" defer></script>
+        <!-- Open Graph / Facebook / Discord -->
+        <meta property="og:title" content="How to Calculate">
+        <meta property="og:description" content="Step-by-step guide to creating a calculator using HTML, CSS, and JavaScript. Learn by example with live code and explanations.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://michaelyurachek.com/calculator.html">
+        <meta property="og:image" content="../library/images/icons/calcProject.png">
+        <!-- Syntax Highlighters -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    </head>
+    <body>
+        <div class="page_container">
+            <nav class="nav_section">
+                <h1 class="nav_title">How To Calculate</h1>
+                <h2 class="nav_subtitle">by Michael Yurachek</h2>
+                <a href="#header"><h3 class="nav_header"><span class="arrow">⬡</span> Welcome</h3></a>
+                <h3 class="nav_header" id="dropDown_header-1" onclick="toggleDropdown(1)"><span class="arrow">▷</span> Simple Calculator</h3>
+                <ul class="nav_list" id="dropdown-1">
+                    <a href="#simpleCodeDesc"><li class="nav_list_object">Description</li></a>
+                    <a href="#simpleCodeBreakdown"><li class="nav_list_object">Code Breakdown</li></a>
+                    <a href="#simpleLiveModule"><li class="nav_list_object">Module</li></a>
+                </ul>
+                <h3 class="nav_header" id="dropDown_header-2" onclick="toggleDropdown(2)"><span class="arrow">▷</span> Button Calculator</h3>
+                <ul class="nav_list" id="dropdown-2">
+                    <a href="#buttonCodeDesc"><li class="nav_list_object">Description</li></a>
+                    <a href="#buttonCodeBreakdown"><li class="nav_list_object">Code Breakdown</li></a>
+                    <a href="#buttonLiveModule"><li class="nav_list_object">Module</li></a>
+                </ul>
+                <h3 class="nav_header" id="dropDown_header-3" onclick="toggleDropdown(3)"><span class="arrow">▷</span> Advanced Calculator</h3>
+                <ul class="nav_list" id="dropdown-3">
+                    <a href="#advancedCodeDesc"><li class="nav_list_object">Description</li></a>
+                    <a href="#advancedCodeBreakdown"><li class="nav_list_object">Code Breakdown</li></a>
+                    <a href="#advancedLiveModule"><li class="nav_list_object">Module</li></a>
+                </ul>
+                <a href="#summary"><h3 class="nav_header"><span class="arrow">⬡</span> Summary</h3></a>
+            </nav>
+            <!-- MAIN CONTAINER -->
+            <main class="main_container">
+                <!-- HEADER [ SECTION ] -->
+                <header class="header_section" id="header">
+                    <img src="../asset/images/icons/calcProject.png" alt="Calculator Icon" class="header_icon" draggable="false">
+                    <h1 class="header_title">👋 Welcome to "How to Calculate" 👋</h1>
+                    <p class="header_description">
+                        This guide will walk you through creating different types of calculators using <b>HTML</b> and <b>JavaScript</b>. 
+                        Each section includes a description, code breakdown, and a live module for you to interact with.
+                    </p>
+                    <hr>
+                    <h2 class="header_subtitle">📋 What You'll Learn:</h2>
+                    <ul class="header_list">
+                        <li class="header_list_object">How to create a simple calculator that evaluates basic arithmetic expressions.</li>
+                        <li class="header_list_object">How to build a button-based calculator with a user-friendly interface.</li>
+                        <li class="header_list_object">How to implement advanced mathematical functions like trigonometry and logarithms.</li>
+                        <li class="header_list_object">How to enhance your calculator with additional features and improved UI/UX.</li>
+                    </ul>
+                </header>
+                <hr id="simpleCodeDesc">
+                <!-- SIMPLE CALCULATOR [ SECTION ] -->
+                <section class="simple_block">
+                    <h2 class="section_title">Simple Calculator</h2>
+                    <p class="section_description">
+                        The Simple Calculator is the most basic example of a calculator you can build with JavaScript. 
+                        It allows users to type in arithmetic expressions such as 2 + 2 or (5 * 3) - 4 and instantly see the result. 
+                        <br>
+                        <br>
+                        Behind the scenes, the calculator takes the user’s input as a string and uses JavaScript’s built-in eval() function to evaluate the expression. 
+                        While eval() is generally not recommended for complex applications due to security risks, it works well here as a quick and easy way to demonstrate how JavaScript can parse and calculate user input. 
+                        <br>
+                        <br>
+                        This example lays the foundation for more advanced calculators by showing how to connect an HTML input field, a button, and JavaScript logic to produce a dynamic result on the page.
+                    </p>
+                    <hr id="simpleCodeBreakdown">
+                    <h3 class="section_subtitle">Code Breakdown:</h3>
+                    <!-- Code Block for HTML -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+                        </div>
+                        <pre><code id="html-code" class="language-html">
+                        &lt;div class="input_equation_module"&gt;
+                            &lt;input type="text" id="equation_input" placeholder="Example: 2 + 2"&gt;
+                            &lt;button class="calculate_button" id="simpleCalculate_button"&gt;Calculate&lt;/button&gt;
+                            &lt;div id="result_display"&gt;Result: &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <!-- Code Block for JavaScript -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode('js-code')">Copy</button>
+                        </div>
+                        <pre><code id="js-code" class="language-javascript">
+                        // --- Simple Calculator ---
+                        const simpleButton = document.getElementById('simpleCalculate_button');
+                        if (simpleButton) {
+                            simpleButton.addEventListener('click', () => {
+                                const eq = document.getElementById('equation_input').value;
+                                try {
+                                    document.getElementById('result_display').innerText = 'Result: ' + eval(eq);
+                                } catch {
+                                    document.getElementById('result_display').innerText = 'Error';
+                                }
+                            });
+                        }
+                        </code></pre>
+                    </div>
+                    <hr id="simpleLiveModule">
+                    <h3 class="section_subtitle">Live Module:</h3>
+                    <div class="input_equation_module">
+                        <input type="text" id="equation_input" placeholder="Example: 2 + 2">
+                        <button class="calculate_button" id="simpleCalculate_button">Calculate</button>
+                        <div id="result_display">Result: </div>
+                    </div>
+                </section>
+                <hr id="buttonCodeDesc">
+                <!-- BUTTON CALCULATOR [ SECTION ] -->
+                <section class="section_block">
+                    <h2 class="section_title">Button Calculator</h2>
+                    <p class="section_description">
+                        The Button Calculator builds upon the Simple Calculator by providing a graphical user interface (GUI) with buttons for digits and operations. 
+                        Users can click buttons to input numbers and operators, making it more user-friendly, especially for those unfamiliar with typing expressions.
+                        <br>
+                        <br>
+                        This calculator uses event listeners on each button to append the corresponding value to an input field. 
+                        When the user clicks the "Calculate" button, the input string is evaluated using eval(), similar to the Simple Calculator.
+                        <br>
+                        <br>
+                        The Button Calculator demonstrates how to create interactive elements in HTML and handle user input through JavaScript, paving the way for more complex calculators with additional features.
+                    </p>
+                    <hr id="buttonCodeBreakdown">
+                    <h3 class="section_subtitle">Code Breakdown:</h3>
+                    <!-- Code Block for HTML -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-html">
+                        &lt;div class="button_click_module"&gt;
+                            &lt;div class="calculator"&gt;
+                                &lt;input type="text" id="button_display" disabled&gt;
+                                &lt;div class="buttons"&gt;
+                                    &lt;button class="btn" data-value="7"&gt;7&lt;/button&gt;
+                                    &lt;button class="btn" data-value="8"&gt;8&lt;/button&gt;
+                                    &lt;button class="btn" data-value="9"&gt;9&lt;/button&gt;
+                                    &lt;button class="btn" data-value="/"&gt;/&lt;/button&gt;
+
+                                    &lt;button class="btn" data-value="4"&gt;4&lt;/button&gt;
+                                    &lt;button class="btn" data-value="5"&gt;5&lt;/button&gt;
+                                    &lt;button class="btn" data-value="6"&gt;6&lt;/button&gt;
+                                    &lt;button class="btn" data-value="*"&gt;*&lt;/button&gt;
+
+                                    &lt;button class="btn" data-value="1"&gt;1&lt;/button&gt;
+                                    &lt;button class="btn" data-value="2"&gt;2&lt;/button&gt;
+                                    &lt;button class="btn" data-value="3"&gt;3&lt;/button&gt;
+                                    &lt;button class="btn" data-value="-"&gt;-&lt;/button&gt;
+
+                                    &lt;button class="btn" data-value="0"&gt;0&lt;/button&gt;
+                                    &lt;button class="btn" data-value="."&gt;.&lt;/button&gt;
+                                    &lt;button class="btn" id="equals_button"&gt;=&lt;/button&gt;
+                                    &lt;button class="btn" data-value="+"&gt;+&lt;/button&gt;
+
+                                    &lt;button class="btn" id="clear_button"&gt;C&lt;/button&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <!-- Code Block for JavaScript -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode('js-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">
+                        // --- Button Click Calculator ---
+                        const display = document.getElementById('button_display');
+                        const buttons = document.querySelectorAll('.btn');
+                        const equalsButton = document.getElementById('equals_button');
+                        const clearButton = document.getElementById('clear_button');
+
+                        if (display && buttons.length) {
+                            buttons.forEach(btn => {
+                                const value = btn.getAttribute('data-value');
+                                if (value) btn.addEventListener('click', () => display.value += value);
+                            });
+                        }
+                        if (equalsButton) {
+                            equalsButton.addEventListener('click', () => {
+                                try { display.value = eval(display.value); } catch { display.value = 'Error'; }
+                            });
+                        }
+                        if (clearButton) {
+                            clearButton.addEventListener('click', () => display.value = '');
+                        }
+                        </code></pre>
+                    </div>
+                    <hr id="buttonLiveModule">
+                    <h3 class="section_subtitle">Live Module:</h3>
+                    <div class="button_click_module">
+                        <div class="calculator">
+                            <input type="text" id="button_display" disabled>
+                            <div class="buttons">
+                                <button class="btn" data-value="7">7</button>
+                                <button class="btn" data-value="8">8</button>
+                                <button class="btn" data-value="9">9</button>
+                                <button class="btn" data-value="/">/</button>
+
+                                <button class="btn" data-value="4">4</button>
+                                <button class="btn" data-value="5">5</button>
+                                <button class="btn" data-value="6">6</button>
+                                <button class="btn" data-value="*">*</button>
+
+                                <button class="btn" data-value="1">1</button>
+                                <button class="btn" data-value="2">2</button>
+                                <button class="btn" data-value="3">3</button>
+                                <button class="btn" data-value="-">-</button>
+
+                                <button class="btn" data-value="0">0</button>
+                                <button class="btn" data-value=".">.</button>
+                                <button class="btn" id="equals_button">=</button>
+                                <button class="btn" data-value="+">+</button>
+
+                                <button class="btn" id="clear_button">C</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <hr id="advancedCodeDesc">
+                <!-- ADVANCED CALCULATOR [ SECTION ] -->
+                <section class="section_block">
+                    <h2 class="section_title">Advanced Calculator</h2>
+                    <p class="section_description">
+                        The Advanced Calculator takes the functionality of the Button Calculator to the next level by incorporating additional mathematical operations and functions. 
+                        This includes support for trigonometric functions (sin, cos, tan), logarithms, exponentiation, and parentheses for grouping expressions.
+                        <br>
+                        <br>
+                        Implementing these features requires more complex JavaScript logic to parse and evaluate the input correctly. 
+                        Instead of relying solely on eval(), we can create a more robust evaluation function or use a library designed for mathematical expressions.
+                        <br>
+                        <br>
+                        The Advanced Calculator is ideal for users who need to perform more sophisticated calculations and serves as a great example of how to build upon basic concepts to create powerful web applications.
+                    </p>
+                    <hr id="advancedCodeBreakdown">
+                    <h3 class="section_subtitle">Code Breakdown:</h3>
+                    <!-- Code Block for HTML -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-html">
+                        &lt;div class="advanced_equations_module"&gt;
+                            &lt;input type="text" id="advanced_input" placeholder="Example: sin(30) + log(10)"&gt;
+                            &lt;button class="calculate_button" id="advanced_calculate"&gt;Calculate&lt;/button&gt;
+                            &lt;div id="advanced_result_display"&gt;Result: &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <!-- Code Block for JavaScript -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode('js-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">
+                        // --- Advanced Calculator ---
+                        function advancedEval(expr) {
+                            // Basic replacements for common functions
+                            expr = expr.replace(/sin/g, 'Math.sin')
+                                       .replace(/cos/g, 'Math.cos')
+                                       .replace(/tan/g, 'Math.tan')
+                                       .replace(/log/g, 'Math.log')
+                                       .replace(/sqrt/g, 'Math.sqrt')
+                                       .replace(/\^/g, '**'); // Replace ^ with ** for exponentiation
+                            return eval(expr);
+                        }
+
+                        const advancedButton = document.getElementById('advanced_calculate');
+                        if (advancedButton) {
+                            advancedButton.addEventListener('click', () => {
+                                const eq = document.getElementById('advanced_input').value;
+                                try {
+                                    document.getElementById('advanced_result_display').innerText = 'Result: ' + advancedEval(eq);
+                                } catch {
+                                    document.getElementById('advanced_result_display').innerText = 'Error';
+                                }
+                            });
+                        }
+                        </code></pre>
+                    </div>
+                    <hr id="advancedLiveModule">
+                    <h3 class="section_subtitle">Live Module:</h3>
+                    <div class="advanced_equations_module">
+                        <input type="text" id="advanced_input" placeholder="Example: sin(30) + log(10)">
+                        <button class="calculate_button" id="advanced_calculate">   Calculate</button>
+                        <div id="advanced_result_display">Result: </div>
+                    </div>
+                </section>
+                <hr id="summary">
+                <!-- SUMMARY [ SECTION ] -->
+                <section class="summary_block">
+                    <h2 class="section_title">Summary</h2>
+                    <p class="section_description">
+                        In this guide, we explored how to create three different types of calculators using HTML and JavaScript. 
+                        Starting with a Simple Calculator that evaluates basic arithmetic expressions, we then built a Button Calculator with a graphical interface for user-friendly input. 
+                        Finally, we developed an Advanced Calculator that supports complex mathematical functions and operations.
+                        <br>
+                        <br>
+                        Each calculator demonstrated key web development concepts, including event handling, and expression evaluation. 
+                        By progressively adding features and complexity, we showcased how to enhance user experience and functionality in web applications.
+                        <br>
+                        <br>
+                        Whether you're a beginner looking to learn JavaScript or an experienced developer seeking to build interactive web tools, these examples provide a solid foundation for creating your own calculators and similar applications.
+                    </p>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
