@@ -49,21 +49,15 @@
                 </ul>
                 <h3 class="nav_header" id="dropDown_header-3" onclick="toggleDropdown(3)"><span class="arrow">▷</span> Advanced Calculator</h3>
                 <ul class="nav_list" id="dropdown-3">
-                    <a><li class="nav_list_object">Description</li></a>
-                    <a><li class="nav_list_object">Code Breakdown</li></a>
-                    <a><li class="nav_list_object">Module</li></a>
+                    <a href="#advancedCodeDesc"><li class="nav_list_object">Description</li></a>
+                    <a href="#advancedCodeBreakdown"><li class="nav_list_object">Code Breakdown</li></a>
+                    <a href="#advancedLiveModule"><li class="nav_list_object">Module</li></a>
                 </ul>
-                <h3 class="nav_header" id="dropDown_header-4" onclick="toggleDropdown(4)"><span class="arrow">▷</span> Button Calculator Plus</h3>
-                <ul class="nav_list" id="dropdown-4">
-                    <a><li class="nav_list_object">Description</li></a>
-                    <a><li class="nav_list_object">Code Breakdown</li></a>
-                    <a><li class="nav_list_object">Module</li></a>
-                </ul>
-                <h3 class="nav_header" href="#"><span class="arrow">⬡</span> Summary</h3>
+                <a href="#summary"><h3 class="nav_header"><span class="arrow">⬡</span> Summary</h3></a>
             </nav>
             <!-- MAIN CONTAINER -->
             <main class="main_container">
-                <!-- HEADER [ SECTION ]-->
+                <!-- HEADER [ SECTION ] -->
                 <header class="header_section" id="header">
                     <img src="../asset/images/icons/calcProject.png" alt="Calculator Icon" class="header_icon" draggable="false">
                     <h1 class="header_title">👋 Welcome to "How to Calculate" 👋</h1>
@@ -81,7 +75,7 @@
                     </ul>
                 </header>
                 <hr id="simpleCodeDesc">
-                <!-- SIMPLE CALCULATOR [ SECTION ]-->
+                <!-- SIMPLE CALCULATOR [ SECTION ] -->
                 <section class="simple_block">
                     <h2 class="section_title">Simple Calculator</h2>
                     <p class="section_description">
@@ -141,7 +135,7 @@
                     </div>
                 </section>
                 <hr id="buttonCodeDesc">
-                <!-- BUTTON CALCULATOR [ SECTION ]-->
+                <!-- BUTTON CALCULATOR [ SECTION ] -->
                 <section class="section_block">
                     <h2 class="section_title">Button Calculator</h2>
                     <p class="section_description">
@@ -253,6 +247,94 @@
                             </div>
                         </div>
                     </div>
+                </section>
+                <hr id="advancedCodeDesc">
+                <!-- ADVANCED CALCULATOR [ SECTION ] -->
+                <section class="section_block">
+                    <h2 class="section_title">Advanced Calculator</h2>
+                    <p class="section_description">
+                        The Advanced Calculator takes the functionality of the Button Calculator to the next level by incorporating additional mathematical operations and functions. 
+                        This includes support for trigonometric functions (sin, cos, tan), logarithms, exponentiation, and parentheses for grouping expressions.
+                        <br>
+                        <br>
+                        Implementing these features requires more complex JavaScript logic to parse and evaluate the input correctly. 
+                        Instead of relying solely on eval(), we can create a more robust evaluation function or use a library designed for mathematical expressions.
+                        <br>
+                        <br>
+                        The Advanced Calculator is ideal for users who need to perform more sophisticated calculations and serves as a great example of how to build upon basic concepts to create powerful web applications.
+                    </p>
+                    <hr id="advancedCodeBreakdown">
+                    <h3 class="section_subtitle">Code Breakdown:</h3>
+                    <!-- Code Block for HTML -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>HTML</span>
+                            <button class="copy-btn" onclick="copyCode('html-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-html">
+                        &lt;div class="advanced_equations_module"&gt;
+                            &lt;input type="text" id="advanced_input" placeholder="Example: sin(30) + log(10)"&gt;
+                            &lt;button class="calculate_button" id="advanced_calculate"&gt;Calculate&lt;/button&gt;
+                            &lt;div id="advanced_result_display"&gt;Result: &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code></pre>
+                    </div>
+                    <!-- Code Block for JavaScript -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>JavaScript</span>
+                            <button class="copy-btn" onclick="copyCode('js-code')">Copy</button>
+                        </div>
+                        <pre><code class="language-javascript">
+                        // --- Advanced Calculator ---
+                        function advancedEval(expr) {
+                            // Basic replacements for common functions
+                            expr = expr.replace(/sin/g, 'Math.sin')
+                                       .replace(/cos/g, 'Math.cos')
+                                       .replace(/tan/g, 'Math.tan')
+                                       .replace(/log/g, 'Math.log')
+                                       .replace(/sqrt/g, 'Math.sqrt')
+                                       .replace(/\^/g, '**'); // Replace ^ with ** for exponentiation
+                            return eval(expr);
+                        }
+
+                        const advancedButton = document.getElementById('advanced_calculate');
+                        if (advancedButton) {
+                            advancedButton.addEventListener('click', () => {
+                                const eq = document.getElementById('advanced_input').value;
+                                try {
+                                    document.getElementById('advanced_result_display').innerText = 'Result: ' + advancedEval(eq);
+                                } catch {
+                                    document.getElementById('advanced_result_display').innerText = 'Error';
+                                }
+                            });
+                        }
+                        </code></pre>
+                    </div>
+                    <hr id="advancedLiveModule">
+                    <h3 class="section_subtitle">Live Module:</h3>
+                    <div class="advanced_equations_module">
+                        <input type="text" id="advanced_input" placeholder="Example: sin(30) + log(10)">
+                        <button class="calculate_button" id="advanced_calculate">   Calculate</button>
+                        <div id="advanced_result_display">Result: </div>
+                    </div>
+                </section>
+                <hr id="summary">
+                <!-- SUMMARY [ SECTION ] -->
+                <section class="summary_block">
+                    <h2 class="section_title">Summary</h2>
+                    <p class="section_description">
+                        In this guide, we explored how to create three different types of calculators using HTML and JavaScript. 
+                        Starting with a Simple Calculator that evaluates basic arithmetic expressions, we then built a Button Calculator with a graphical interface for user-friendly input. 
+                        Finally, we developed an Advanced Calculator that supports complex mathematical functions and operations.
+                        <br>
+                        <br>
+                        Each calculator demonstrated key web development concepts, including event handling, and expression evaluation. 
+                        By progressively adding features and complexity, we showcased how to enhance user experience and functionality in web applications.
+                        <br>
+                        <br>
+                        Whether you're a beginner looking to learn JavaScript or an experienced developer seeking to build interactive web tools, these examples provide a solid foundation for creating your own calculators and similar applications.
+                    </p>
                 </section>
             </main>
         </div>

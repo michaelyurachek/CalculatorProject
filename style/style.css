@@ -44,7 +44,7 @@ a {
 hr {
     border: none;
     border-top: 2px solid rgb(59, 59, 59);
-    margin: 4vh auto;
+    margin: 10vh auto;
     width: 90%;
 }
 
@@ -263,6 +263,7 @@ body {
     width: 90%;
     overflow-x: auto;
     box-shadow: 0 0 10px black;
+    margin-bottom: 4vh;
 }
 
 .code-header {
@@ -423,3 +424,49 @@ pre {
     grid-column: span 4; /* Make it span all 4 columns */
     margin-bottom: 2vh;
 }
+
+/* Advanced Calculator Module Styling */
+.advanced_equations_module {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40vw;
+    margin-left: 5vw;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(59, 59, 59);
+    border-radius: 8px;
+    padding: 2vh 2vw;
+    box-shadow: 0 0 10px black;
+}
+
+#advanced_input {
+    width: 50%;
+    background-color: rgb(48, 48, 48);
+    border: 1px solid #585858;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-primary);
+    padding: 0.5vh 1vw;
+    font-size: 1vw;
+}
+
+#advanced_input::placeholder {
+    color: #888;
+}
+
+#advanced_input:focus {
+    outline: none;
+    border: 1px solid rgb(255, 170, 59);
+    box-shadow: 0 0 5px rgb(255, 170, 59);
+}
+
+/* Summary Section */
+.summary_block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15vh;
+}
+
+/* Responsive Design */

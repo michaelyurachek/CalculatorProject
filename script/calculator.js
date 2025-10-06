@@ -2,8 +2,7 @@ function toggleDropdown(selector) {
     const headers = [
         { id: "dropDown_header-1", text: "Simple Calculator", listId: "dropdown-1" },
         { id: "dropDown_header-2", text: "Button Calculator", listId: "dropdown-2" },
-        { id: "dropDown_header-3", text: "Advanced Calculator", listId: "dropdown-3" },
-        { id: "dropDown_header-4", text: "Button Calculator Plus", listId: "dropdown-4" }
+        { id: "dropDown_header-3", text: "Advanced Calculator", listId: "dropdown-3" }
     ];
 
     const arrowRight = "▷"; // right arrow
